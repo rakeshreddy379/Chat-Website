@@ -13,15 +13,42 @@ async function sentFriendrequest(username){
             body:JSON.stringify({friendName:username}),
             credentials: "include"
         });
-
         if (response.ok) {
-            console.log('he is your friend')
-            setList(p=>
-                p.filter(f=>f.username!==username)
-            )
+            console.log('he is your friend',username)
+           // First, update the friends state
+setFriends(prevFriends => {
+  const updatedFriends = prevFriends.filter(user => user.username !== username);
 
-        }
-    }
+  // Now set the list using the updated friends
+  const updatedList = (
+    <ul>
+      {updatedFriends.map((friend) => (
+        <li key={friend.username}>
+          <img
+            src={friend.userprofile}
+            className="rounded-full h-30 w-30"
+            alt={friend.username}
+          />
+          <p>{friend.username}</p>
+          <button
+            className="bg-white border-none shadow-xl"
+            onClick={() => sentFriendrequest(friend.username)}
+          >
+            Add friend
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+
+  // Set the list after updating friends
+  setList(updatedList);
+
+  return updatedFriends; // return new state for setFriends
+});
+
+        
+    }}
         catch(error){
 
         }
@@ -92,5 +119,4 @@ async function sentFriendrequest(username){
         </div>
     );
 }
-
 export default Addfriend;

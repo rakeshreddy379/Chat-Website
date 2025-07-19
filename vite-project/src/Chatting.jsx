@@ -107,11 +107,11 @@ messages.sort((a, b) => Number(a.time) - Number(b.time));
     );
     return (
         <div className='ml-20'>
-            <button className="bg-[#080814] text-white block">{chattingperson}</button>
-            <div className='h-110 overflow-auto scrollbar-none text-white'ref={messageContainerRef}>{setMessagesPattern}</div>
+            <button className="bg-[#080814] bg-white  shadow-xl block">{chattingperson}</button>
+            <div className='h-110 overflow-auto scrollbar-none 'ref={messageContainerRef}>{setMessagesPattern}</div>
             <div className='typing'>
                 <input type='text' value={message}onChange={handleText} placeholder="type something"></input> 
-                <button onClick={sendMessage}>Send</button>
+                <button className='bg-white  shadow-xl'onClick={sendMessage}>Send</button>
             </div>
         </div>
     );

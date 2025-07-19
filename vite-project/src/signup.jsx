@@ -81,12 +81,12 @@ console.log(error)
   </div>
         <form onSubmit={handleSubmit}>
         <div class="mb-3">
-    <label for="userprofile" class="form-label">Email address</label>
+    <label for="userprofile" class="form-label">Profile pic</label>
     <img src={image} alt="Profile" name='userprofile'class="profile-image"onClick={handleimageChange}></img>    <div id="userprofile" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   
               <div class="mb-3">
-    <label for="username" class="form-label">Email address</label>
+    <label for="username" class="form-label">Enter username </label>
     <input type="text" name='username'onChange={handleChange}class="form-control" id="username" aria-describedby="username"required></input>
     <div id="username" class="form-text">We'll never share your email with anyone else.</div>
   </div>
